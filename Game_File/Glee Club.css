@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "RH";
+    src: url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.eot");
+    src: url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.eot?#iefix") format("embedded-opentype"),
+    url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.woff2") format("woff2"),
+    url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.woff") format("woff"),
+    url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.ttf") format("truetype"),
+    url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.svg#Storm Sans Std") format("svg");
+}
+
+.black-screen{
+    width: 954px;
+    height: 468px;
+    background-color: black;
+    opacity: 0;
+}
+
+.Close{
+    width: 954px;
+    height: 117px;
+    background-color: black;
+    opacity: 0;
+    top: 359px;
+}
+
+.white{
+    font-family: RH;
+    font-size: 39px;
+    color: white;
+    top: 398px;
+    left: 239px;
+    opacity: 0;
+}
+
+@keyframes fade-out{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes appear_Yap{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes disappear_Yap{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes appear_Close{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
+@keyframes disappear_Close{
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0;
+    }
+}
