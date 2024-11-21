@@ -8,7 +8,17 @@
     url("http://db.onlinewebfonts.com/t/d00f4d75d56b59c51affc78fa2910146.svg#Storm Sans Std") format("svg");
 }
 
+#canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    z-index: -1;
+}
+
 .black-screen{
+    top: 0px;
+    left: 0px;
     width: 954px;
     height: 468px;
     background-color: black;
@@ -16,19 +26,21 @@
 }
 
 .Close{
+    top: 350px;
+    left: 0px;
     width: 954px;
     height: 117px;
     background-color: black;
     opacity: 0;
-    top: 359px;
 }
 
 .white{
     font-family: RH;
-    font-size: 39px;
+    font-size: 35px;
     color: white;
-    top: 398px;
-    left: 239px;
+    transform: translate(-50%, -50%);
+    top: 405px;
+    left: 477px;
     opacity: 0;
 }
 
