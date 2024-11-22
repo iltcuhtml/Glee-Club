@@ -1,6 +1,8 @@
 let fps = 60, interval = 1000 / fps,                // /
     now, then = Date.now(), savedTime = Date.now(), // | FPS Checker
     delta, conter = 0;                              // \
+
+let verdict = fps * 0.4;
     
 let is_Perfect = false;
 let is_P_press = false;
@@ -30,7 +32,7 @@ let Score_wait = 0;
 let J_frame = 100;
 let Pause = true;
 let Auto = false;
-let TXT = true;
+let TXT = false;
 let canvas;
 let ctx;
 let add = 0;
@@ -76,7 +78,7 @@ let K1Y = 55;
 let K1_Sound_State = "Ap";
 let K1_Start = [750, 1215, 1410, 1685, 2145, 2375, 2805, 2975, 3020, 3540, 4005, 4195, 4465, 4935, 5300];
 let K1_Stop = [780, 1245, 1440, 1710, 2175, 2495, 2845, 2990, 3050, 3745, 4030, 4225, 4670, 5135, 5310];
-let K1_Sound = ["Ep", "Ep", "Super", "Ep", "Ep", "G", "Super", "Bp", "Bp", "Ep", "Ep", "Super", "Ep", "Ep", "G"];//Super = C & Super
+let K1_Sound = ["Ep", "Ep", "Super", "Ep", "Ep", "G", "Super", "Bp", "Bp", "Ep", "Ep", "Super", "Ep", "Ep", "G"];   //Super = C & Super
 
 let K2_Wrong = false;
 
@@ -117,10 +119,10 @@ let K3_Sound = ["Bp", "Bp", "Super", "Bp", "Bp", "Ep", "Super", "Bp", "Bp", "Bp"
 let RK3_Start = [];
 let RK3_Stop = [];
 for (let i = 0; i < K3_Start.length; i++) {
-    RK3_Start[i] = K3_Start[i] - fps * 0.15;
+    RK3_Start[i] = K3_Start[i] - verdict;
 }
 for (let i = 0; i < K3_Stop.length; i++) {
-    RK3_Stop[i] = K3_Stop[i] - fps * 0.15;
+    RK3_Stop[i] = K3_Stop[i] - verdict;
 }
 
 let keysDown = {};
@@ -550,7 +552,7 @@ function Kids_moves() {
 	}
 	
     if (!is_order_changed) {
-        if (K3_Start[order] - fps * 0.15 <= frame && frame <= K3_Stop[order] + fps * 0.15) {
+        if (K3_Start[order] - verdict <= frame && frame <= K3_Stop[order] + verdict) {
             IS_is_Input_Stop_SET = false;
             is_Input_Start = false;
             is_Input_Stop = true;
@@ -558,7 +560,7 @@ function Kids_moves() {
             order++;
         }
     } else {        
-        if (frame > K3_Stop[order - 1] + fps * 0.15) {  
+        if (frame > K3_Stop[order - 1] + verdict) {  
             if (!is_Input_Stop) {
                 K1_Wrong = true;
                 K2_Wrong = true;
@@ -569,7 +571,7 @@ function Kids_moves() {
             IS_is_Input_Stop_SET = true;
             is_Input_Start = true;
             is_order_changed = false;
-        } else if (frame > K3_Start[order - 1] + fps * 0.15) {
+        } else if (frame > K3_Start[order - 1] + verdict) {
             if (!is_Input_Start) {
                 K1_Wrong = true;
                 K2_Wrong = true;
@@ -628,10 +630,10 @@ function Set_score() {
     let num = 0;
 
 	for (let i = 0; i < K3_Start.length; i++) {
-		num += (1 - Math.abs(K3_Start[i] - RK3_Start[i]) / (fps * 0.15)) * 100;
+		num += (1 - Math.abs(K3_Start[i] - RK3_Start[i]) / (verdict)) * 100;
 	}
 	for (let i = 0; i < K3_Stop.length; i++) {
-		num += (1 - Math.abs(K3_Stop[i] - RK3_Stop[i]) / (fps * 0.15)) * 100;
+		num += (1 - Math.abs(K3_Stop[i] - RK3_Stop[i]) / (verdict)) * 100;
 	}
 
     if (num > 0) {

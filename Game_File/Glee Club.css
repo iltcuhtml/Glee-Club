@@ -44,6 +44,12 @@
     opacity: 0;
 }
 
+.explain{
+    font-size: 50px;
+    color: black;
+    top: 450px;
+}
+
 @keyframes fade-out{
     from {
         opacity: 0;
